@@ -1,12 +1,11 @@
-FROM python
+FROM python:3.10-alpine
 
 WORKDIR /app
 
-COPY requirments.txt /app
+COPY requirments.txt .
 
-RUN pip install -r requirments.txt --no-cache-dir
+RUN pip3 install -r requirments.txt --no-cache-dir
 
-COPY . /app
+COPY . .
 
-ENTRYPOINT [ "python"]
-CMD ["index.py"]
+CMD ["python3", "index.py"]
